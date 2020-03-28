@@ -10,6 +10,8 @@ mvnw.cmd
 settings.gradle
 target/
 .classpath
+.mvn/
+.settings/
 .mvn/wrapper/maven-wrapper.jar
 .mvn/wrapper/maven-wrapper.properties
 .project
@@ -20,3 +22,4 @@ target/
 .settings/org.eclipse.wst.common.project.facet.core.xml
 .settings/org.eclipse.wst.validation.prefs
 .settings/org.jboss.ide.eclipse.as.core.prefs
+.tern-project
