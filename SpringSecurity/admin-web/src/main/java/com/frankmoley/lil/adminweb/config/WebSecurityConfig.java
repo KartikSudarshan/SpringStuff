@@ -42,8 +42,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new JdbcUserDetailsManager(datasource);
 	}
 	
-	@Bean
-	public static PasswordEncoder getPasswordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
-	}
+	/* Default Password encoder is bcrypt in spring 
+	 * Commenting the below function so that spring will use bcrypt instead 
+	 * 
+	 * @Bean public static PasswordEncoder getPasswordEncoder() { return
+	 * NoOpPasswordEncoder.getInstance(); }
+	 */
 }
