@@ -23,13 +23,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception{
-		httpSecurity.authorizeRequests()
-		.antMatchers("/","/home").permitAll()
-		.antMatchers("/customers/**").hasRole("USER")
-		.antMatchers("/orders/**").hasRole("ADMIN")
-		.anyRequest().authenticated()
-		.and()
-		.httpBasic();
+		httpSecurity
+        .authorizeRequests()
+        .antMatchers("/", "/home").permitAll()
+        .antMatchers("/customers/**").hasRole("USER")
+        .antMatchers("/orders").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/login")
+        .failureUrl("/login?error")
+        .permitAll()
+        .and()
+        .logout()
+        .clearAuthentication(true)
+        .invalidateHttpSession(true)
+        .logoutSuccessUrl("/login?logout")
+        .permitAll();
 	}
 	
 	/* Code used for in memory authenication
